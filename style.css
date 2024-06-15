@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #323238;
+    --icon-soundboard: #FFF;
+    --text-color: #FFF;
+    --card-color-default: #29292e;
+    --card-color1: #109b15;
+    --card-color2: #02799D;
+    --card-color3: #54300e;
+    --card-color4: #dd4c24;
+
+    font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html, body, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 2rem;
+    font-size: 1.6rem;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sr-only {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    padding: 0px;
+    border: 0;
+    appearance: none;
+}
+
+/* Mode */
+html.light {
+    --bg-color: #FFF;
+    --text-color: #323238;
+    --card-color-default: #E1E1E6;
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+    display: none;
+}
+
+#mode {
+    position: absolute;
+    top: 3.2rem;
+    right: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 0;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 19.2rem;
+}
+
+.running .ph-play-circle,
+html:not(.running) .ph-pause-circle {
+    display: none;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    font-size: 12.6rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#controls {
+    display: flex;
+    gap: 4rem;
+}
+
+#controls button {
+    background-color: transparent;
+    border: none;
+    font-size: 4.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Soundboard */
+.soundboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.2rem;
+}
+
+.sound {
+    color: var(--text-color);
+    background-color: var(--card-color-default);
+    font-size: 5.6rem;
+    border: none;
+    border-radius: 2.4rem;
+    width: 13.8rem;
+    height: 15.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform .3s, background .5s, color .5s;
+}
+
+.sound:hover {
+    transform: scale(1.1);
+}
+
+.sound.active {
+    color: #E1E1E6;
+}
+
+.sound.active:nth-child(1) {
+    background-color: var(--card-color1);
+}
+
+.sound.active:nth-child(2) {
+    background-color: var(--card-color2);
+}
+
+.sound.active:nth-child(3) {
+    background-color: var(--card-color3);
+}
+
+.sound.active:nth-child(4) {
+    background-color: var(--card-color4);
+}
+
+.sound.no-transition {
+    transition: none;
+}
